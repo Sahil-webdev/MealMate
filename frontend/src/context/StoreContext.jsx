@@ -13,7 +13,7 @@ const StoreContextProvider = (props) => {
     const [food_list, setFoodList] = useState([])
     const symbol = "₹";
 
-    const url = "http://localhost:5000"
+    const url = "https://mealmate-backend-fddu.onrender.com"
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
