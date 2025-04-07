@@ -1,0 +1,54 @@
+.header{
+    height: 34vw;
+    margin: 25px auto;
+    background-image: url(../assets/heroimg2.jpg);
+    background-size: cover;
+    position: relative;
+    border-radius: 15px;
+    animation: sizeFadeIn 1s;
+}
+
+.headerContent{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    bottom: 30px;
+    left: 85px;
+    animation: fadeIn 3s;
+}
+
+.para1{
+    color: gainsbor;
+    max-width: 55vw;
+    color: rgb(210, 156, 121);
+}
+
+.headBtn{
+    text-align: left;
+    border: none;
+    color: #747474;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    font-size: max(1vw, 13px);
+    max-width: 10vw;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes sizeFadeIn {
+    0%{
+        transform: scale(0.6);
+    }100%{
+        transform: scale(1);
+    }
+}

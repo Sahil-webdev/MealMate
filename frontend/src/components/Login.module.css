@@ -1,0 +1,88 @@
+.loginPopup{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #00000090;
+    display: grid;
+}
+
+.container{
+    place-self: center  ;
+    width: max(27vw, 390px);
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 35px;
+    border-radius: 10px;
+    font-size: 15px;
+    animation: fadeIn 0.5s;
+}
+
+.loginTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.loginInput{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loginInput input{
+    outline: none;
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.loginBtn{
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: tomato;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.checkDiv{
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-top: -15px;
+}
+
+.checkDiv input{
+    margin-top: 5px;
+}
+
+.container p span{
+    color: tomato;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* @keyframes sizeFadeIn {
+    0%{
+        transform: scale(0.6);
+    }100%{
+        transform: scale(1);
+    }
+} */

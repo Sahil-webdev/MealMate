@@ -1,0 +1,112 @@
+.foodItem{
+    width: 263px;   
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #00000039;
+    transition: 0.3;
+    animation: fadeIn 1s;
+}
+
+.itemImg img{
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.info{
+    font-size: 15px;
+    padding: 5px 20px 5px 20px;
+}
+
+.nameRating{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ratingImg{
+    width: 70px;
+}
+
+.nameRating p{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.desc{
+    font-size: 12px;
+    color: #676767;
+}
+
+.price{
+    font-size: 22px;
+    color: tomato;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+
+.itemImg{
+    position: relative;
+}
+
+.blackAdd{
+    font-size: 23px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: white;
+    padding: 5px 6px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.plusMinus{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.plusMinus i{
+    margin: 0px 5px;
+}
+
+.redMinus{
+    background-color: transparent;
+    border-radius: 50px;
+    /* padding: 5px; */
+}
+
+.redMinusBg:hover{
+    background-color: rgba(128, 0, 0, 0.161);
+    border-radius: 50px;
+    /* padding: 5px; */
+}
+
+.greenAdd{
+    background-color: transparent;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.greenPlusBg :hover{
+    background-color: rgba(0, 128, 0, 0.161);
+    border-radius: 50px;
+    padding: 5px;
+}
+
+
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
