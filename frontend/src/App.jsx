@@ -9,6 +9,7 @@ import Login from './components/Login'
 import FoodDisplay from './components/FoodDisplay'
 import { ToastContainer } from 'react-toastify';
 import MyOrders from './components/MyOrders'
+import Aboutus from './components/Aboutus'
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/menu' element={<FoodDisplay />} />
           <Route path='/place-order' element={<PlaceOrder />} />
+          <Route path='/aboutus' element={<Aboutus />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/myorders' element={<MyOrders />} />
         </Routes>

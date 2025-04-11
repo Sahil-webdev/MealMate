@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const List = () => {
 
-  const url = "https://mealmate-backend-fddu.onrender.com"
+  const url = "http://localhost:5173"
   const [list, setList] = useState([]);
   const currency = "₹"
 

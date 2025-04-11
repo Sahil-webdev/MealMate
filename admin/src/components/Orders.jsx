@@ -2,7 +2,9 @@ import React from 'react'
 
 const Orders = () => {
   return (
-    <div>here you can see your customers orders</div>
+    <div>chalo ab banate hai orders page
+      <p>hello guyss</p>
+    </div>
   )
 }
 

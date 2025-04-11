@@ -29,6 +29,7 @@ const Navbar = ({ setShowLogin }) => {
             <ul className={`flex gap-5 list-none text-[18px] ${styles.navbarMenu}`}>
                 <NavLink to="/" onClick={() => setHrTag("home")} className={hrTag === "home" ? `${styles.active}` : ""}>Home</NavLink>
                 <NavLink to="/menu" onClick={() => setHrTag("menu")} className={hrTag === "menu" ? `${styles.active}` : ""}>Menu</NavLink>
+                <NavLink to="/aboutus" onClick={() => setHrTag("aboutus")} className={hrTag === "aboutus" ? `${styles.active}` : ""}>About Us</NavLink>
                 <a href='#footer' onClick={() => setHrTag("contact-us")} className={hrTag === "contact-us" ? `${styles.active}` : ""}>Contact Us</a>
             </ul>
 

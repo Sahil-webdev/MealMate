@@ -30,7 +30,7 @@ const placeOrder = async(req, res)=>{
         await newOrder.save();
 
         const options = {
-            amount: amount *100,
+            amount: amount * 100,
             currency: currency.toUpperCase(),
             receipt: newOrder._id.toString()
         }

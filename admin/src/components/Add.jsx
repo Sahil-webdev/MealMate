@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const Add = () => {
 
-  const url = "https://mealmate-backend-fddu.onrender.com"
+  const url = "http://localhost:5173"
 
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
