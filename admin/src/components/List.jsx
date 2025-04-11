@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const List = () => {
 
-  const url = "http://localhost:5173"
+  const url = "http://localhost:5000"
   const [list, setList] = useState([]);
   const currency = "₹"
 
