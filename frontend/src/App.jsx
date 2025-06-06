@@ -10,6 +10,7 @@ import FoodDisplay from './components/FoodDisplay'
 import { ToastContainer } from 'react-toastify';
 import MyOrders from './components/MyOrders'
 import Aboutus from './components/Aboutus'
+import SplitPayment from './components/SplitPayment'
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route path='/aboutus' element={<Aboutus />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/myorders' element={<MyOrders />} />
+          <Route path='/splitpayment' element={<SplitPayment />} />
         </Routes>
       </div>
       <Footer />

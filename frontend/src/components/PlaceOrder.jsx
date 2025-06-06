@@ -3,33 +3,33 @@ import styles from "./PlaceOrder.module.css"
 import { StoreContext } from '../context/StoreContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 
 const PlaceOrder = () => {
 
   const navigate = useNavigate();
 
-  const {getTotalCartAmount, food_list, cartItems, setCartItems, url, token} =  useContext(StoreContext);
+  const { getTotalCartAmount, food_list, cartItems, setCartItems, url, token } = useContext(StoreContext);
 
   const [data, setData] = useState({
-    firstName:"",
-    lastName:"",
-    email:"",
-    street:"",
-    city:"",
-    state:"",
-    zipcode:"",
-    countary:"",
-    phone:""
+    firstName: "",
+    lastName: "",
+    email: "",
+    street: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    countary: "",
+    phone: ""
   })
 
-  const onChangeHandler = (event) =>{
+  const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setData(data=>({...data,[name]:value}));
+    setData(data => ({ ...data, [name]: value }));
   }
 
-  const initPay = (order) =>{
+  const initPay = (order) => {
     const options = {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: order.amount,
@@ -38,11 +38,11 @@ const PlaceOrder = () => {
       description: 'Order Payment',
       order_id: order.id,
       receipt: order.receipt,
-      handler: async (response)=>{
+      handler: async (response) => {
         console.log(response);
         try {
-          const {data} = await axios.post(url + '/api/order/verifypayment', response, {headers:{token}})
-          if(data.success){
+          const { data } = await axios.post(url + '/api/order/verifypayment', response, { headers: { token } })
+          if (data.success) {
             navigate('/myorders');
             setCartItems({})
           }
@@ -56,17 +56,17 @@ const PlaceOrder = () => {
     rzp.open()
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(data);
-  },[data])
+  }, [data])
 
-  const handleSubmitBtn = async(event) =>{
-    event.preventDefault();  
+  const handleSubmitBtn = async (event) => {
+    event.preventDefault();
     let orderItems = [];
-    food_list.map((item)=>{
-      if(cartItems[item._id]>0){
+    food_list.map((item) => {
+      if (cartItems[item._id] > 0) {
         let itemInfo = item;
-        itemInfo["quantity"]= cartItems[item._id];
+        itemInfo["quantity"] = cartItems[item._id];
         orderItems.push(itemInfo)
       }
     })
@@ -77,13 +77,18 @@ const PlaceOrder = () => {
       amount: getTotalCartAmount() + 2
     };
 
-    let response = await axios.post(url + "/api/order/place", orderData, {headers:{token}})
-    if(response.data.success){
+    let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } })
+    if (response.data.success) {
       initPay(response.data.order)
     }
-    else{
+    else {
       alert("Error");
     }
+  }
+
+  const handleSplitBtn = async (event) => {
+    event.preventDefault();
+    // navigate('/splitpayment', { state: { Data: data } })
   }
 
   return (
@@ -100,20 +105,20 @@ const PlaceOrder = () => {
         <input name='street' onChange={onChangeHandler} value={data.street} type="text" placeholder='Street' required />
 
         <div className={styles.multiFields}>
-          <input name='city' onChange={onChangeHandler} value={data.city}  type="text" placeholder='City' required />
-          <input name='state' onChange={onChangeHandler} value={data.state}  type="text" placeholder='State' required />
+          <input name='city' onChange={onChangeHandler} value={data.city} type="text" placeholder='City' required />
+          <input name='state' onChange={onChangeHandler} value={data.state} type="text" placeholder='State' required />
         </div>
 
         <div className={styles.multiFields}>
-          <input name='zipcode' onChange={onChangeHandler} value={data.zipcode}  type="text" placeholder='Zip Code' required />
-          <input name='countary' onChange={onChangeHandler} value={data.countary}  type="text" placeholder='Country' required />
+          <input name='zipcode' onChange={onChangeHandler} value={data.zipcode} type="text" placeholder='Zip Code' required />
+          <input name='countary' onChange={onChangeHandler} value={data.countary} type="text" placeholder='Country' required />
         </div>
 
-        <input name='phone' onChange={onChangeHandler} value={data.phone}  type="number" placeholder='Phone Number' required />
+        <input name='phone' onChange={onChangeHandler} value={data.phone} type="number" placeholder='Phone Number' required />
       </div>
 
       <div className={styles.orderRight}>
-      <div className={styles.cartTotal}>
+        <div className={styles.cartTotal}>
           <h2>Cart Totals</h2>
           <div>
             <div className={styles.totalDetails}>
@@ -128,10 +133,13 @@ const PlaceOrder = () => {
             <hr />
             <div className={styles.totalDetails}>
               <p>Total</p>
-              <p>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount()+ 2}</p>
+              <p>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</p>
             </div>
           </div>
-          <button className={styles.btn}>PROCEED TO PAYMENT</button>
+          <div className='flex gap-9 mt-4'>
+            <button type='submit' className={styles.btn}>FULL PAYMENT</button>
+            <button onClick={handleSplitBtn} type='submit' className={styles.btn}>SPLIT PAYMENT</button>
+          </div>
         </div>
       </div>
     </form>

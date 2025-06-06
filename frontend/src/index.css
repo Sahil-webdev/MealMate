@@ -7,3 +7,9 @@
 *{
     font-family: outfit;
 }
+
+hr {
+    height: 1px;
+    background-color: #e2e2e2;
+    border: none;
+}
